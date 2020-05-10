@@ -1,0 +1,22 @@
+\documentclass[a4paper,14pt]{extarticle}
+\usepackage{./preamble}
+\begin{document}
+    \input{titles/1-mispis} 
+    \input{titles/2-cisco} 
+    \include{sections/0-annotation}
+    \include{sections/0-introduction}
+    \tableofcontents
+    \clearpage
+    \include{sections/10-formatting}
+    \include{sections/20-math}
+    \include{sections/30-figures}
+    \include{sections/40-Tikz}
+    \include{sections/50-tables}
+    \include{sections/60-code}
+    \include{sections/70-conclusion}
+    \include{sections/80-bib}
+    \begin{apps}
+    \include{sections/81-app}
+    \include{sections/90-app-reftest}
+    \end{apps}
+\end{document}
