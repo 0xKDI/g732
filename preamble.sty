@@ -59,11 +59,12 @@
 \usepackage{setspace}
 \onehalfspacing%
 
-\tolerance=1
+% \tolerance=1
 \emergencystretch=\maxdimen{}
-\hyphenpenalty=10000
-\hbadness=10000
-\usepackage{hyphenat}
+% \hyphenpenalty=10000
+% \hbadness=10000
+\hyphenchar\font=-1
+% \usepackage[none]{hyphenat}
 
 \usepackage{blindtext}
 % }}}
@@ -106,6 +107,7 @@
 \usepackage{float}
 
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta,graphs,shapes}
 % }}}
 % Captions {{{
 \addto\captionsrussian{\renewcommand{\figurename}{Рис}}
@@ -131,7 +133,7 @@
     % framesep=2mm,
     fontsize=\footnotesize,
     autogobble,
-    breaklines,
+    breaklines=true,
     breakautoindent=false,
     frame=lines,
     numbers=left,
