@@ -4,7 +4,7 @@
 \setdefaultlanguage[numerals=cyrillic-alph,spelling=modern]{russian}
 \setmainfont{Times New Roman}
 \setmonofont{Consolas}
-% \setotherlanguage{english}
+\setotherlanguage{english}
 \PolyglossiaSetup{russian}{indentfirst=true,langtag=RU}
 % }}}
 % Geometry {{{
@@ -54,18 +54,20 @@
 % }}}
 % Page/par {{{
 \setlength{\parindent}{1.25cm}
-\frenchspacing
 
 \usepackage{setspace}
 \onehalfspacing%
 
 % \tolerance=1
-\emergencystretch=\maxdimen{}
 % \hyphenpenalty=10000
 % \hbadness=10000
+\emergencystretch=\maxdimen{}
 \hyphenchar\font=-1
 % \usepackage[none]{hyphenat}
 
+\clubpenalty=10000  % Запрещаем разрыв страницы после первой строки абзаца
+\widowpenalty=10000 % Запрещаем разрыв страницы после последней строки абзаца
+\frenchspacing
 \usepackage{blindtext}
 % }}}
 % Hyperref, footnotes {{{
