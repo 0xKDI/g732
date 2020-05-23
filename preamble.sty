@@ -58,7 +58,7 @@
 \usepackage{setspace}
 \onehalfspacing%
 
-% \tolerance=1
+\tolerance=9999
 % \hyphenpenalty=10000
 % \hbadness=10000
 \emergencystretch=\maxdimen{}
@@ -71,6 +71,8 @@
 \usepackage{blindtext}
 % }}}
 % Hyperref, footnotes {{{
+% \usepackage{hyperref}
+\PassOptionsToPackage{hyphens}{url}
 \usepackage{hyperref}
 \hypersetup{
     hidelinks,
