@@ -17,15 +17,21 @@
 \renewcommand{\footrulewidth}{0pt}
 % }}}
 % Titlesec {{{
-\usepackage{titlesec}
-\titleformat{\section}{\bfseries}{\thesection}{1ex}{}{}
-\titlespacing*{\section}{1.25cm}{1.2ex}{1.2ex}
-\titleformat{\subsection}{\bfseries}{\thesubsection}{1ex}{}{}
-\titlespacing*{\subsection}{1.25cm}{1.2ex}{1.2ex}
-\titleformat{\subsubsection}{}{\thesubsubsection}{1ex}{}{}
-\titlespacing*{\subsubsection}{1.25cm}{1.2ex}{1.2ex}
-\titleformat{\paragraph}{}{\theparagraph}{1ex}{}{}
-\titlespacing*{\paragraph}{1.25cm}{1.2ex}{1.2ex}
+\usepackage[raggedright,compact]{titlesec}
+
+\titleformat{\section}[block]{\bfseries\hspace{1.25cm}}{\thesection}{1ex}{}{}
+\titlespacing*{\section}{0cm}{1.2ex}{1.2ex}
+
+\titleformat{\subsection}[block]{\bfseries\hspace{1.25cm}}{\thesubsection}{1ex}{}{}
+\titlespacing*{\subsection}{0cm}{1.2ex}{1.2ex}
+
+\titleformat{\subsubsection}[block]{\hspace{1.25cm}}{\thesubsubsection}{1ex}{}{}
+\titlespacing*{\subsubsection}{0cm}{1.2ex}{1.2ex}
+
+\titleformat{\paragraph}[block]{\hspace{1.25cm}}{\theparagraph}{1ex}{}{}
+\titlespacing*{\paragraph}{0cm}{1.2ex}{1.2ex}
+
+
 \titleformat{\subparagraph}[block]{\bfseries}{}{}{}
 \titlespacing*{\subparagraph}{0cm}{1.2ex}{1.2ex}
 \setcounter{secnumdepth}{4}
@@ -47,7 +53,7 @@
 \dottedcontents{paragraph}[3.4em]{}{3.4em}{0.6em}
 
 \addto{\captionsrussian}{\renewcommand*{\contentsname}{%
-\centerline{СОДЕРЖАНИЕ}\vspace{-1em}}%
+\centerline{СОДЕРЖАНИЕ}}%
 }
 
 \setcounter{tocdepth}{4}   
@@ -58,9 +64,9 @@
 \usepackage{setspace}
 \onehalfspacing%
 
-\tolerance=9999
-% \hyphenpenalty=10000
 % \hbadness=10000
+\tolerance=9999
+\hyphenpenalty=10000
 \emergencystretch=\maxdimen{}
 \hyphenchar\font=-1
 % \usepackage[none]{hyphenat}
@@ -145,10 +151,22 @@
     tabsize=4
 }
 \usepackage{etoolbox}
-\BeforeBeginEnvironment{minted}{\vspace{-10pt}}
-\AfterEndEnvironment{minted}{\vspace{-10pt}}
-\BeforeBeginEnvironment{listing}{\vspace{-3pt}}
-\AfterEndEnvironment{listing}{\vspace{-15pt}}
+\BeforeBeginEnvironment{minted}{%
+    \vspace{-10pt}%
+    \hyphenpenalty=0%
+}
+\AfterEndEnvironment{minted}{%
+    \vspace{-10pt}%
+    \hyphenpenalty=10000%
+}
+\BeforeBeginEnvironment{listing}{
+    \vspace{-3pt}%
+    \hyphenpenalty=0%
+}
+\AfterEndEnvironment{listing}{
+    \vspace{-15pt}
+    \hyphenpenalty=10000%
+}
 \SetupFloatingEnvironment{listing}{name=Листинг}
 % }}}
 % Counters {{{
@@ -186,7 +204,7 @@
 \newenvironment{apps}
 {
     \appendix
-    \titleformat{\subsubsection}{\bfseries}{\thesubsubsection}{1ex}{}{}
+    \titleformat{\subsubsection}[block]{\bfseries\hspace{1.2cm}}{\thesubsubsection}{1ex}{}{}
     \renewcommand{\thesection}{\Asbuk{section}}%
     \titleformat{\section}{\bfseries\centering}{\thesection}{1ex}{}{}%
     \renewcommand\thefigure{\thesection.\arabic{figure}}%
