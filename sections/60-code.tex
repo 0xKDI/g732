@@ -41,6 +41,13 @@ somelinesomelinesomelinesomelinesomelinesomelinesomelinesomelinesomelinesomeline
 \inputminted{c}{inc/example.c}
 \end{listing}
 
+\begin{listing}[H]
+\caption*{/etc/pam.d/system-login}
+    \begin{minted}[linenos=false]{text}
+    auth optional pam\_faildelay.so delay=4000000
+\end{minted}
+\end{listing}
+
 One-line code formatting also works with minted. For instance, a simple html 
 sample like this:
 \mintinline{html}{<h2>Something <b>here</b></h2>}

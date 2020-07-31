@@ -124,7 +124,7 @@
 \usepackage[font=small,labelsep=endash]{caption}
 \captionsetup[table]{justification=raggedright,singlelinecheck=false}
 \captionsetup[listing]{justification=raggedright,singlelinecheck=false,skip=-6pt}
-\usepackage[caption = false]{subfig}
+% \usepackage[caption = false]{subfig}
 % }}}
 % Tables {{{
 \usepackage{array,tabularx,tabulary,booktabs,longtable}
@@ -140,7 +140,7 @@
 % \usemintedstyle{bw}
 \setminted{
     % xleftmargin=12pt,
-    % framesep=2mm,
+    framesep=3mm,
     fontsize=\footnotesize,
     autogobble,
     breaklines=true,
@@ -153,7 +153,7 @@
 }
 \usepackage{etoolbox}
 \BeforeBeginEnvironment{minted}{%
-    \vspace{-10pt}%
+    \vspace{-3pt}%
     \hyphenpenalty=0%
 }
 \AfterEndEnvironment{minted}{%
