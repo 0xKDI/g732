@@ -1,13 +1,14 @@
-% vim:foldmethod=marker foldlevel=0
-% Language {{{
+% |Language
 \usepackage{polyglossia}
 \setdefaultlanguage[numerals=cyrillic-alph,spelling=modern]{russian}
 \setmainfont{Times New Roman}
 \setmonofont{Consolas}
 \setotherlanguage{english}
 \PolyglossiaSetup{russian}{indentfirst=true,langtag=RU}
-% }}}
-% Geometry {{{
+
+
+
+% |Geometry
 \usepackage[left=3cm,right=1.5cm,vmargin=2cm]{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -15,8 +16,10 @@
 \fancyfoot[C]{\hspace{-1.5cm}\thepage} % except the center
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-% }}}
-% Titlesec {{{
+
+
+
+% |Titlesec
 \usepackage[raggedright,compact]{titlesec}
 
 \titleformat{\section}[block]{\bfseries\hspace{1.25cm}}{\thesection}{1ex}{}{}
@@ -35,7 +38,6 @@
 \titleformat{\subparagraph}[block]{\bfseries}{}{}{}
 \titlespacing*{\subparagraph}{0cm}{1.2ex}{1.2ex}
 \setcounter{secnumdepth}{4}
-
 \usepackage{suffix}
 \newcommand\csec[1]{%
     \subparagraph{\centerline{#1}}
@@ -44,8 +46,10 @@
 \WithSuffix\newcommand\csec*[1]{%
     \subparagraph{\centerline{#1}}%
 }
-% }}}
-% Toc {{{
+
+
+
+% |Toc
 \usepackage{titletoc}
 \dottedcontents{section}[1.3em]{}{1.3em}{0.6em}
 \dottedcontents{subsection}[2.0em]{}{2.0em}{0.6em}
@@ -56,9 +60,11 @@
 \centerline{СОДЕРЖАНИЕ}}%
 }
 
-\setcounter{tocdepth}{4}   
-% }}}
-% Page/par {{{
+\setcounter{tocdepth}{4}
+
+
+
+% |Page/par
 \setlength{\parindent}{1.25cm}
 
 \usepackage{setspace}
@@ -75,8 +81,10 @@
 \widowpenalty=10000 % Запрещаем разрыв страницы после последней строки абзаца
 \frenchspacing
 \usepackage{blindtext}
-% }}}
-% Hyperref, footnotes {{{
+
+
+
+% |Hyperref, footnotes
 \usepackage[hyphens]{xurl}
 \usepackage{hyperref}
 \hypersetup{
@@ -87,12 +95,16 @@
 
 \usepackage[bottom]{footmisc}
 \setlength{\footnotemargin}{13.5mm}
-% }}}
-% Math {{{
+
+
+
+% |Math
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
 \usepackage{icomma} % $0,2$ --- число, $0, 2$ --- перечисление
-% }}}
-% Lists {{{
+
+
+
+% |Lists
 \usepackage{enumitem}
 \makeatletter
 \renewcommand*{\Asbuk}[1]{%
@@ -109,33 +121,54 @@
 \setlist[enumerate,2]{label={\asbuk*)},ref=\asbuk*}
 \setlist[itemize]{label={--}}
 \setlist[itemize,2]{label={---}}
-% }}}
-% Graphics/Tikz {{{
+
+
+
+% |Graphics/Tikz
 \usepackage{graphicx}
 \graphicspath{{images/}{../images/}{screenshots/}{../screenshots/}}
 \usepackage{float}
 
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,graphs,shapes}
-% }}}
-% Captions {{{
+
+
+
+% |Captions
 \addto\captionsrussian{\renewcommand{\figurename}{Рис}}
 \addto\captionsrussian{\renewcommand{\tablename}{Тaблица}}
 \usepackage[font=small,labelsep=endash]{caption}
 \captionsetup[table]{justification=raggedright,singlelinecheck=false}
 \captionsetup[listing]{justification=raggedright,singlelinecheck=false,skip=-6pt}
 % \usepackage[caption = false]{subfig}
-% }}}
-% Tables {{{
+%
+
+
+% |Tables
 \usepackage{array,tabularx,tabulary,booktabs,longtable}
-\usepackage{diagbox}
+\usepackage{diagbox} % to produce a box with a diagonal line from north west to south east.
 % set longtable left alignment
 \setlength\LTleft{0pt}
-% \setlength\LTright{\fill}
+
 \usepackage{multirow}
-\renewcommand{\arraystretch}{1} % вертикальный просвет между строками
-% }}}
-% Minted {{{
+\newcommand{\mur}{\multirow}
+\newcommand{\muc}{\multicolumn}
+
+\usepackage{xltabular}
+\usepackage{makecell} % TODO: read docs
+\newcommand{\mc}{\makecell}
+
+\renewcommand\theadfont{\small\bfseries}
+% \usepackage{floatrow} % TODO: read docs
+% \DeclareFloatFont{small}{\small}% "small" isn't defined by floatrow
+% \floatsetup[table]{font=small}
+
+\renewcommand{\arraystretch}{1.2} % вертикальный просвет между строками
+\newcommand{\ac}{\centering}
+\newcommand{\ar}{\raggedright}
+\newcommand{\al}{\raggedleft}
+
+% |Minted
 \usepackage[outputdir=out/,newfloat]{minted}
 % \usemintedstyle{bw}
 \setminted{
@@ -145,13 +178,16 @@
     autogobble,
     breaklines=true,
     breakautoindent=false,
-    frame=lines,
     numbers=left,
     numbersep=8pt,
     baselinestretch=1,
     tabsize=4
 }
 \usepackage{etoolbox}
+\AtBeginEnvironment{xltabular}{
+  \small{}
+  % \singlespacing{}
+}
 \BeforeBeginEnvironment{minted}{%
     \vspace{-3pt}%
     \hyphenpenalty=0%
@@ -169,16 +205,20 @@
     \hyphenpenalty=10000%
 }
 \SetupFloatingEnvironment{listing}{name=Листинг}
-% }}}
-% Counters {{{
+
+
+
+% |Counters
 \usepackage{lastpage}
 \usepackage{totcount}
 \newtotcounter{tables}
 \newtotcounter{figures}
 \newtotcounter{bibitems}
 \newtotcounter{apps}
-% }}}
-% Bibliography {{{
+
+
+
+% |Bibliography
 \usepackage{cite,csquotes}
 
 \addto\captionsrussian{\def\refname{СПИСОК ЛИТЕРАТУРЫ}}
@@ -199,8 +239,10 @@
         \setlength{\itemsep}{0pt}
     }
 \makeatother
-% }}}
-% Appendx {{{
+
+
+
+% |Appendx
 \usepackage{chngcntr}
 \newenvironment{apps}
 {
@@ -245,4 +287,3 @@
 \let\orig@section\section
 \g@addto@macro\appendix{\let\section\appendix@section}
 \makeatother
-% }}}

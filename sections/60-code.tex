@@ -36,20 +36,20 @@ somelinesomelinesomelinesomelinesomelinesomelinesomelinesomelinesomelinesomeline
     return M
 \end{minted}
 
+Лучше не использовать listing т.к он не сптилит больше чем на 1 страницу.
 \begin{listing}[H]
-\caption{example.c}\label{lst:example}
-\inputminted{c}{inc/example.c}
+ \caption{example.c}\label{lst:example}
+ \inputminted{c}{inc/example.c}
 \end{listing}
 
-\begin{listing}[H]
-\caption*{/etc/pam.d/system-login}
-    \begin{minted}[linenos=false]{text}
+Captionof тоже лучше не использовать.
+% \captionof{listing}{/etc/pam.d/system-login}
+\begin{minted}[linenos=false]{text}
     auth optional pam\_faildelay.so delay=4000000
 \end{minted}
-\end{listing}
 
-One-line code formatting also works with minted. For instance, a simple html 
+One-line code formatting also works with minted. For instance, a simple html
 sample like this:
 \mintinline{html}{<h2>Something <b>here</b></h2>}
-can be properly 
+can be properly
 formatted
