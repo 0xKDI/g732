@@ -62,7 +62,7 @@
      Lots of lines & like this\\\hline
      Lots of lines & like this\\\hline
      Lots of lines & like this\\\hline
-     Lots of lines & like this\\\hline
+     Lots of lines & like this fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\\\hline
 \end{longtable}
 
 \begin{table}[H]
@@ -72,20 +72,37 @@
     Short sentences & \# & Long sentences \\\hline
     This is short. & 173 & This is much loooooooonger, because there are many more words. \\
     \hline
-This is not shorter. & 317 & This is still loooooooonger, because there are many more words. \\
-\hline
-  \end{tabulary}  
+  \end{tabulary}
 \end{table}
 
-% xltabular таблица с номером~\ref{tab:xltabular}
-% \begin{xltabular}{\linewidth}{|m{0.15\linewidth}|m{0.15\linewidth}|m{0.15\linewidth}|m{0.15\linewidth}|}
-%   \caption{xltabular}\label{tab:xltabular}\\\hline
-%   Наименование поля & Тип данных &
-%   Дополнительнае характеристика & Описание \\\hline
-%   % \endfirsthead{}
-%   % \caption*{Продолжение таблицы \ref{tab:xltabular}}
-%   % \endhead{}
-%   % \endfoot{}
-%   % \endlastfoot{}
-%   id & Int & Primary key & Идентификатор покупателя \\\hline
-% \end{xltabular}
+В таблице~\ref{tab:xltabular} представлен xltabular, на данный момент
+самая юзабельная таблица, включает в себя преимущества xtabular (автоматическая ширина
+таблицы)
+и longtable (автоматический перенос со всеми вытекающими).
+
+Если компилятор ругается на overfull при использовании xltabular, то это значит, что
+контент в таблице вылезает за пределы страницы (страницы, а не текста), с другими таблицами
+в таком случае контент просто вылезет за пределы страницы (таблица~\ref{tab:long} ласт строка).
+
+Еще добавил alias'ы, а то много места команты занимают:
+
+\textbackslash{}mc=\textbackslash{}multicolumn
+
+\textbackslash{}mr=\textbackslash{}multirow
+
+\begin{xltabular}{\textwidth}{|l|l|l|l|}
+  \caption{xltabular}\label{tab:xltabular}\\\hline
+  \thead{Типичное название\\ столбца} &
+  \thead{Ещё\\ столбец} &
+  \thead{И ещё один} &
+  \mc[l]{Можно использовать\\ \textbackslash{}mc вместо \textbackslash{}thead } \\\hline
+  \endfirsthead
+  \caption*{Продолжение таблицы \ref{tab:xltabular}}
+  \endhead
+  \endfoot
+  \endlastfoot
+  типичная ячейка                   & 2020 & ещё ячейка с чем-то        & и ещё одна \\\hline
+  \mc[l]{много\\ текста для ячейки} & 2020 & ещё ячейка                 & и ещё одна \\\hline
+  типичная ячейка                   & 2020 & \mc[r]{а это ячейка такая} & и ещё одна \\\hline
+  типичная ячейка                   & 2020 & \mc[c]{ещё ячейка}         & и ещё одна \\\hline
+\end{xltabular}
