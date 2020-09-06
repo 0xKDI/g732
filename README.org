@@ -1,0 +1,2 @@
+#+TITLE: G732
+* See [[file:out/main.pdf][out/main.pdf]]

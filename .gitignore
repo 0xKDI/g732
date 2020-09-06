@@ -1,5 +1,6 @@
-out/**
-*.org
+out/*
+!out/main.pdf
 *.log*
 *.auctex-auto*
 *.org
+!README.org
