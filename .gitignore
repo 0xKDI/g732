@@ -4,3 +4,10 @@ out/*
 *.auctex-auto*
 *.org
 !README.org
+*.aux
+/_minted-main/
+*.fls
+*.toc
+*.out
+*.xdv
+*.fdb_latexmk

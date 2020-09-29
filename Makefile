@@ -16,4 +16,9 @@ install:
 uninstall:
 	rm -drf $(INSTALL_PATH)
 
+clean:
+	latexmk -c
+	rm -drf _minted*
+	rm *.xdv
+
 # end
