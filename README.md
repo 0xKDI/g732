@@ -1,2 +1,2 @@
 # G732
-See [main.pdf](file:main.pdf)
+See [main.pdf](main.pdf)
