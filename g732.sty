@@ -1,14 +1,14 @@
-% |Language
+% Language
 \usepackage{polyglossia}
 \setdefaultlanguage[numerals=cyrillic-alph,spelling=modern]{russian}
 \setmainfont{Times New Roman}
-\setmonofont{Consolas}
+% \setmonofont{Consolas}
 \setotherlanguage{english}
 \PolyglossiaSetup{russian}{indentfirst=true,langtag=RU}
 
 
 
-% |Geometry
+% Geometry
 \usepackage[left=3cm,right=1.5cm,vmargin=2cm]{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -19,7 +19,7 @@
 
 
 
-% |Titlesec
+% Titlesec
 \usepackage[raggedright,compact]{titlesec}
 
 \titleformat{\section}[block]{\bfseries\hspace{1.25cm}}{\thesection}{1ex}{}{}
@@ -49,7 +49,7 @@
 
 
 
-% |Toc
+% Toc
 \usepackage{titletoc}
 \dottedcontents{section}[1.3em]{}{1.3em}{0.6em}
 \dottedcontents{subsection}[2.0em]{}{2.0em}{0.6em}
@@ -64,7 +64,7 @@
 
 
 
-% |Page/par
+% Page/par
 \setlength{\parindent}{1.25cm}
 
 \usepackage{setspace}
@@ -84,7 +84,7 @@
 
 
 
-% |Hyperref, footnotes
+% Hyperref, footnotes
 \usepackage[hyphens]{xurl}
 \usepackage{hyperref}
 \hypersetup{
@@ -98,13 +98,13 @@
 
 
 
-% |Math
+% Math
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
 \usepackage{icomma} % $0,2$ --- число, $0, 2$ --- перечисление
 
 
 
-% |Lists
+% Lists
 \usepackage{enumitem}
 \makeatletter
 \renewcommand*{\Asbuk}[1]{%
@@ -124,7 +124,7 @@
 
 
 
-% |Graphics/Tikz
+% Graphics/Tikz
 \usepackage{graphicx}
 \graphicspath{{images/}{../images/}{screenshots/}{../screenshots/}}
 \usepackage{float}
@@ -136,7 +136,7 @@
 
 
 
-% |Captions
+% Captions
 \addto\captionsrussian{\renewcommand{\figurename}{Рис}}
 \addto\captionsrussian{\renewcommand{\tablename}{Тaблица}}
 \usepackage[font=small,labelsep=endash]{caption}
@@ -146,7 +146,7 @@
 %
 
 
-% |Tables
+% Tables
 \usepackage{array,tabularx,tabulary,booktabs,longtable}
 \usepackage{diagbox} % to produce a box with a diagonal line from north west to south east.
 % set longtable left alignment
@@ -170,7 +170,7 @@
 \newcommand{\ar}{\raggedright}
 \newcommand{\al}{\raggedleft}
 
-% |Minted
+% Minted
 \usepackage[newfloat]{minted}
 % \usemintedstyle{bw}
 \setminted{
@@ -210,7 +210,7 @@
 
 
 
-% |Counters
+% Counters
 \usepackage{lastpage}
 \usepackage{totcount}
 \newtotcounter{tables}
@@ -220,7 +220,7 @@
 
 
 
-% |Bibliography
+% Bibliography
 \usepackage{cite,csquotes}
 
 \addto\captionsrussian{\def\refname{СПИСОК ЛИТЕРАТУРЫ}}
@@ -244,7 +244,7 @@
 
 
 
-% |Appendx
+% Appendx
 \usepackage{chngcntr}
 \newenvironment{apps}
 {
