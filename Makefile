@@ -4,17 +4,16 @@
 # @file
 # @version 0.1
 
-# paths
-INSTALL_PATH = ~/texmf/tex/latex/g732
-TARGET = g732.sty
+INSTALL_PATH = $(if ${TEXMFHOME}, ${TEXMFHOME}, ~/texmf/tex/latex/g732)
+STY = g732.sty
 
 
 install:
 	mkdir -p $(INSTALL_PATH)
-	cp -f $(TARGET) $(INSTALL_PATH)/$(TARGET)
+	cp -f $(STY) $(INSTALL_PATH)/$(STY)
 
 uninstall:
-	rm -drf $(INSTALL_PATH)
+	rm $(INSTALL_PATH)/$(STY)
 
 clean:
 	latexmk -c
