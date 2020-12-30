@@ -1,9 +1,6 @@
-out/*
-!out/main.pdf
+result
 *.log*
 *.auctex-auto*
-*.org
-!README.org
 *.aux
 /_minted-main/
 *.fls
