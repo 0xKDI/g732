@@ -8,3 +8,4 @@ result
 *.out
 *.xdv
 *.fdb_latexmk
+*.pdf
