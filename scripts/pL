@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Insert image directly to latex source
+
+if [ "$#" -ne 1 ]; then
+    echo "$(basename $0): specify one argument"
+    exit 1
+fi
+
+# Image name
+filename=$(echo $1|cut -f1 -d".")
+
+xclip -selection clipboard -o > "${filename}.png"
+
+# Latex file at top directory
+latex_file=$(rg  "includegraphics.*\{\}" ../ -l --type tex)
+
+# Line of figure argument
+line=$(grep -n -m 1 "includegraphics.*{}" "${latex_file}" | cut -f1 -d:)
+
+sed -i -e "${line}s/{}$/{$filename.png}/" \
+    -e "$(( $line+1 ))s/{fig:}/{fig:$filename}/" $latex_file
