@@ -49,7 +49,11 @@ mkShell {
         totcount;
     })
 
-    python38Packages.pygments
+    python38Packages.pygments # required for minted
     corefonts # Microsoft fonts
   ];
+
+  shellHook = ''
+    latexmk -r latexmkrc.rb
+    '';
 }
